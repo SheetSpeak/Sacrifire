@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-var SPEED = 300.0
-const WALKSPEED=300.0
+var SPEED = 200.0
+const WALKSPEED=200.0
 const RUNSPEED = 500.0
 
 @onready var animation = $AnimatedSprite2D
@@ -11,6 +11,10 @@ const RUNSPEED = 500.0
 func _physics_process(delta: float) -> void:
 	var directiony := Input.get_axis("up", "down")
 	var direction := Input.get_axis("left", "right")
+	if direction<0:
+		animation.flip_h=true
+	elif direction>0:
+		animation.flip_h=false
 	if directiony and not direction:
 		velocity.y = directiony * SPEED
 		velocity.x= move_toward(velocity.x,0,SPEED)
