@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 300.0
 const WALKSPEED=300.0
-const DASHSPEED = 900.0
+const RUNSPEED = 500.0
 
 
 func _physics_process(delta: float) -> void:
@@ -22,8 +22,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x= move_toward(velocity.x,0,SPEED)
 		velocity.y= move_toward(velocity.y,0,SPEED)
 	
-	if Input.is_action_pressed("dash"):
-		SPEED=DASHSPEED
+	if Input.is_action_pressed("run"):
+		SPEED=RUNSPEED
 	else:
 		SPEED=WALKSPEED
 		
