@@ -236,7 +236,6 @@ radius = 45.0
 [node name="Node2D" type="Node2D"]
 
 [node name="Ghost" type="CharacterBody2D" parent="."]
-position = Vector2(300, -25)
 script = ExtResource("1_hiw70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]

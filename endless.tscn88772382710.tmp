@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bia3i0pqlny1m"]
+[gd_scene load_steps=27 format=3 uid="uid://bia3i0pqlny1m"]
 
 [ext_resource type="Script" uid="uid://dfj7sfmpsb202" path="res://endless.gd" id="1_di87v"]
 [ext_resource type="Script" uid="uid://didmwd12q752i" path="res://character_body_2d.gd" id="1_y0afm"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://s1rjw1jhf03l" path="res://charWalk.png" id="3_ip54i"]
 [ext_resource type="Script" uid="uid://ssk3dqqut13g" path="res://area_2d.gd" id="4_08us5"]
 [ext_resource type="Texture2D" uid="uid://ckr6ocd6s8a8d" path="res://Emblem2.png" id="5_ysybj"]
-[ext_resource type="Script" uid="uid://c810mh8hf1c7o" path="res://fire.gd" id="6_xdkf5"]
-[ext_resource type="Texture2D" uid="uid://011wyai4df2k" path="res://tiletemp.png" id="8_xdkf5"]
+[ext_resource type="Texture2D" uid="uid://dh3xcqfxopojv" path="res://icon.svg" id="6_8g3db"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 16.0
@@ -130,8 +129,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gngh3"]
 radius = 32.280025
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_748ai"]
-texture = ExtResource("8_xdkf5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
+texture = ExtResource("6_8g3db")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -142,6 +141,7 @@ texture = ExtResource("8_xdkf5")
 7:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -197,8 +197,9 @@ texture = ExtResource("8_xdkf5")
 6:7/0 = 0
 7:7/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_mcchq"]
-sources/0 = SubResource("TileSetAtlasSource_748ai")
+[sub_resource type="TileSet" id="TileSet_h2yge"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 
 [node name="Endless" type="Node2D"]
 script = ExtResource("1_di87v")
@@ -211,15 +212,11 @@ position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_1bvp3")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_horizontal_offset = -0.52
-drag_vertical_offset = -0.82
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_5vw27")
 autoplay = "default"
-frame_progress = 0.15354905
+frame_progress = 0.75468594
 
 [node name="Area2D" type="Area2D" parent="Player"]
 script = ExtResource("4_08us5")
@@ -228,60 +225,61 @@ script = ExtResource("4_08us5")
 shape = SubResource("CircleShape2D_4c57u")
 
 [node name="Fire" type="CharacterBody2D" parent="Player"]
-script = ExtResource("6_xdkf5")
+position = Vector2(13, -80)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Fire"]
-position = Vector2(-200, 0)
+position = Vector2(-154, -56)
 sprite_frames = SubResource("SpriteFrames_d2t1y")
 autoplay = "default"
-frame_progress = 0.80273265
+frame_progress = 0.19690476
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Fire"]
-position = Vector2(-200, 0)
+position = Vector2(-150, -63)
 shape = SubResource("CircleShape2D_gngh3")
 
 [node name="Fire2" type="CharacterBody2D" parent="Player"]
-script = ExtResource("6_xdkf5")
+position = Vector2(284, -80)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Fire2"]
-position = Vector2(0, 200)
+position = Vector2(-154, -56)
 sprite_frames = SubResource("SpriteFrames_d2t1y")
 autoplay = "default"
-frame_progress = 0.2869993
+frame_progress = 0.68117905
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Fire2"]
-position = Vector2(0, 200)
+position = Vector2(-150, -63)
 shape = SubResource("CircleShape2D_gngh3")
 
 [node name="Fire3" type="CharacterBody2D" parent="Player"]
-script = ExtResource("6_xdkf5")
+position = Vector2(22, 212)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Fire3"]
-position = Vector2(200, 0)
+position = Vector2(-154, -56)
 sprite_frames = SubResource("SpriteFrames_d2t1y")
 autoplay = "default"
-frame_progress = 0.39780653
+frame_progress = 0.5556554
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Fire3"]
-position = Vector2(200, 0)
+position = Vector2(-150, -63)
 shape = SubResource("CircleShape2D_gngh3")
 
 [node name="Fire4" type="CharacterBody2D" parent="Player"]
-script = ExtResource("6_xdkf5")
+position = Vector2(284, 212)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Fire4"]
-position = Vector2(0, -200)
+position = Vector2(-154, -56)
 sprite_frames = SubResource("SpriteFrames_d2t1y")
 autoplay = "default"
-frame_progress = 0.12032109
+frame_progress = 0.5556554
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Fire4"]
-position = Vector2(0, -200)
+position = Vector2(-150, -63)
 shape = SubResource("CircleShape2D_gngh3")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_mcchq")
+tile_set = SubResource("TileSet_h2yge")
 format = 2
+layer_0/tile_data = PackedInt32Array(1048553, 65536, 1, 1048554, 65536, 1, 1048555, 65536, 1, 1048556, 65536, 1, 1048557, 65536, 1, 1048558, 65536, 1, 1048559, 65536, 1, 1048560, 65536, 1, 1048561, 65536, 1, 1114098, 65536, 1, 1114099, 65536, 1, 1114100, 65536, 1, 1114101, 65536, 1, 1114102, 65536, 1, 1179638, 65536, 1, 1179639, 65536, 1, 1179640, 65536, 1, 1179641, 65536, 1, 1179642, 65536, 1, 1179643, 65536, 1, 1114108, 65536, 1, 1114109, 65536, 1, 1114110, 65536, 1, 1114111, 65536, 1, 1048576, 65536, 1, 1048577, 65536, 1, 1048578, 65536, 1, 1048579, 65536, 1, 1048580, 65536, 1, 1048581, 65536, 1, 1048582, 65536, 1, 1048583, 65536, 1, 1048584, 65536, 1, 1048585, 65536, 1, 1048586, 65536, 1, 983051, 65536, 1, 983052, 65536, 1, 983053, 65536, 1, 983054, 65536, 1, 983055, 65536, 1, 983056, 65536, 1, 983057, 65536, 1, 983058, 65536, 1, 983059, 65536, 1, 983060, 65536, 1, 983061, 65536, 1, 983062, 65536, 1, 983063, 65536, 1, 983064, 65536, 1, 983065, 65536, 1, 983066, 65536, 1, 983067, 65536, 1, 983068, 65536, 1, 1048605, 65536, 1, 983070, 65536, 1, 983071, 65536, 1, 983072, 65536, 1, 917536, 65536, 1, 852000, 65536, 1, 786464, 65536, 1, 720929, 65536, 1, 655393, 65536, 1, 589857, 65536, 1, 524321, 65536, 1, 458785, 65536, 1, 393249, 65536, 1, 327713, 65536, 1, 262177, 65536, 1, 196641, 65536, 1, 131105, 65536, 1, 65569, 65536, 1, 33, 65536, 1, -65503, 65536, 1, -131039, 65536, 1, -196575, 65536, 1, -262112, 65536, 1, -327648, 65536, 1, -393184, 65536, 1, -458721, 65536, 1, -524257, 65536, 1, -589793, 65536, 1, -655329, 65536, 1, -720866, 65536, 1, -786403, 65536, 1, -851939, 65536, 1, -917475, 65536, 1, -983012, 65536, 1, -1048548, 65536, 1, -1114084, 65536, 1, -1179620, 65536, 1, -1179621, 65536, 1, -1245157, 65536, 1, -1310693, 65536, 1, -1310694, 65536, 1, -1376231, 65536, 1, -1376232, 65536, 1, -1441769, 65536, 1, -1441770, 65536, 1, -1441771, 65536, 1, -1507308, 65536, 1, -1507309, 65536, 1, -1507310, 65536, 1, -1507311, 65536, 1, -1507312, 65536, 1, -1507313, 65536, 1, -1507314, 65536, 1, -1507315, 65536, 1, -1507316, 65536, 1, -1572852, 65536, 1, -1572853, 65536, 1, -1572854, 65536, 1, -1638391, 65536, 1, -1638392, 65536, 1, -1638393, 65536, 1, -1638394, 65536, 1, -1703931, 65536, 1, -1703932, 65536, 1, -1703933, 65536, 1, -1703934, 65536, 1, -1703935, 65536, 1, -1769472, 65536, 1, -1703937, 65536, 1, -1703938, 65536, 1, -1703939, 65536, 1, -1703940, 65536, 1, -1703941, 65536, 1, -1769478, 65536, 1, -1769479, 65536, 1, -1769480, 65536, 1, -1769481, 65536, 1, -1769482, 65536, 1, -1835019, 65536, 1, -1835020, 65536, 1, -1835021, 65536, 1, -1835022, 65536, 1, -1835023, 65536, 1, -1835024, 65536, 1, -1835025, 65536, 1, -1835026, 65536, 1, -1835027, 65536, 1, -1769492, 65536, 1, -1769493, 65536, 1, -1703958, 65536, 1, -1638423, 65536, 1, -1572888, 65536, 1, -1507352, 65536, 1, -1441816, 65536, 1, -1376280, 65536, 1, -1310745, 65536, 1, -1245209, 65536, 1, -1179674, 65536, 1, -1114138, 65536, 1, -1048603, 65536, 1, -983067, 65536, 1, -917531, 65536, 1, -851995, 65536, 1, -786460, 65536, 1, -720924, 65536, 1, -655388, 65536, 1, -589852, 65536, 1, -524316, 65536, 1, -458780, 65536, 1, -393244, 65536, 1, -327708, 65536, 1, -262172, 65536, 1, -196636, 65536, 1, -131100, 65536, 1, -65563, 65536, 1, -27, 65536, 1, 65509, 65536, 1, 131045, 65536, 1, 196581, 65536, 1, 196582, 65536, 1, 262118, 65536, 1, 327654, 65536, 1, 393190, 65536, 1, 458726, 65536, 1, 524262, 65536, 1, 589798, 65536, 1, 655334, 65536, 1, 720870, 65536, 1, 786406, 65536, 1, 786407, 65536, 1, 851943, 65536, 1, 917479, 65536, 1, 983016, 65536, 1, 1048552, 65536, 1)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

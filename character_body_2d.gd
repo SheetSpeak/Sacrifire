@@ -5,12 +5,30 @@ var SPEED = 200.0
 const WALKSPEED=200.0
 const RUNSPEED = 500.0
 
+@onready var Fire1=$Fire
+@onready var Fire2=$Fire2
+@onready var Fire3=$Fire3
+@onready var Fire4=$Fire4
+
+var hasFire=false
+
 @onready var animation = $AnimatedSprite2D
 
 func die():
 	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
+	if hasFire:
+		Fire1.visible=true
+		Fire2.visible=true
+		Fire3.visible=true
+		Fire4.visible=true
+	else:
+		Fire1.visible=false
+		Fire2.visible=false
+		Fire3.visible=false
+		Fire4.visible=false
+		
 	var directiony := Input.get_axis("up", "down")
 	var direction := Input.get_axis("left", "right")
 	if direction<0:
@@ -33,10 +51,5 @@ func _physics_process(delta: float) -> void:
 		animation.animation="default"
 		velocity.x= move_toward(velocity.x,0,SPEED)
 		velocity.y= move_toward(velocity.y,0,SPEED)
-	
-	if Input.is_action_pressed("run"):
-		SPEED=RUNSPEED
-	else:
-		SPEED=WALKSPEED
 		
 	move_and_slide()
