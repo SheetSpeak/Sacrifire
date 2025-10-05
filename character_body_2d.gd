@@ -7,6 +7,8 @@ const RUNSPEED = 500.0
 
 @onready var animation = $AnimatedSprite2D
 
+func die():
+	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	var directiony := Input.get_axis("up", "down")
