@@ -59,7 +59,10 @@ func _physics_process(delta: float) -> void:
 			Fire4.visible=false
 			Fire4Col.disabled=true
 	elif Global.level==1:
-		hudText.text="Present me a sacrifice... use my flame..."
+		if Global.kills==1:
+			hudText.text="Move Forwards...."
+		else:
+			hudText.text="Give me a sacrifice... use my flame"
 		Fire1.visible=true
 		Fire1Col.disabled=false
 		Fire2.visible=false
@@ -69,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		Fire4.visible=false
 		Fire4Col.disabled=true
 	elif Global.level==2:
-		hudText.text="Now bring me as many sacrifices as you can..."
+		hudText.text="Now bring me as many sacrifices as you can... Sacrifices done:"+str(Global.kills)
 		Fire1.visible=true
 		Fire1Col.disabled=false
 		Fire2.visible=true

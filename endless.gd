@@ -13,5 +13,5 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	var newghost=ghost.instantiate();
-	newghost.position=Vector2(0,0)
+	newghost.position=Vector2(randi_range(-100,-500),0)
 	add_child(newghost)

@@ -210,6 +210,22 @@ script = ExtResource("1_qulpo")
 position = Vector2(535, -794)
 texture = ExtResource("1_rmy57")
 
+[node name="Sprite2D8" type="Sprite2D" parent="Sprite2D8"]
+position = Vector2(-1005, 39)
+texture = ExtResource("1_rmy57")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprite2D8/Sprite2D8"]
+position = Vector2(267, 1400)
+texture = ExtResource("1_rmy57")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprite2D8/Sprite2D8/Sprite2D8"]
+position = Vector2(2631, -292)
+texture = ExtResource("1_rmy57")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprite2D8/Sprite2D8/Sprite2D8/Sprite2D8"]
+position = Vector2(-987, -1653)
+texture = ExtResource("1_rmy57")
+
 [node name="Sprite2D7" type="Sprite2D" parent="."]
 position = Vector2(1341, 648)
 texture = ExtResource("1_rmy57")
@@ -319,6 +335,7 @@ layer_0/tile_data = PackedInt32Array(-917519, 0, 1, -983054, 0, 1, -983053, 0, 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.2
+autostart = true
 
 [connection signal="body_entered" from="Player/Area2D" to="Player/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

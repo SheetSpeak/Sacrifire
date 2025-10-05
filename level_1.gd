@@ -4,5 +4,5 @@ extends Node2D
 
 func _ready() -> void:
 	var newghost=ghost.instantiate();
-	newghost.position=Vector2(100,10)
+	newghost.position=Vector2(500,10)
 	add_child(newghost)
