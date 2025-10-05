@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://djbgo13uxvf8d"]
+
+[ext_resource type="Texture2D" uid="uid://cejptoipmvx44" path="res://hudDis.png" id="1_k5de2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(576.00006, 142.49998)
+scale = Vector2(9.109376, 2.2578127)
+texture = ExtResource("1_k5de2")
+
+[node name="Label" type="Label" parent="Control" groups=["hudText"]]
+layout_mode = 1
+offset_right = 206.0
+offset_bottom = 75.0
+text = "
+ THE ETERNAL FIRE
+ HAS GRANTED YOU A GIFT."
+horizontal_alignment = 1

@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 
-var SPEED = 200.0
-const WALKSPEED=200.0
+@onready var hudTextSet= get_tree().get_nodes_in_group("hudText")
+
+var SPEED = 300.0
+const WALKSPEED=300.0
 const RUNSPEED = 500.0
 var hasEmb= false
 
@@ -16,20 +18,58 @@ var hasEmb= false
 @onready var Fire4Col=$Fire4/CollisionShape2D
 @onready var Vision=$Vision
 
+var hudText=null
+
 var hasFire=false
 var hasVision=false
 
 @onready var animation = $AnimatedSprite2D
 
+func _ready() -> void:
+	for i in hudTextSet:
+		if i.name=="Label":
+			hudText=i
+			break
+func lvl():
+	Global.level+=1
 func die():
 	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
-	
-	
-	if hasVision:
-		Vision.visible=true
-	if hasFire:
+	if Global.level==0:
+		hudText.text="Move Forward..."
+		if hasVision:
+			Vision.visible=true
+		if hasFire:
+			Fire1.visible=true
+			Fire1Col.disabled=false
+			Fire2.visible=true
+			Fire2Col.disabled=false
+			Fire3.visible=true
+			Fire3Col.disabled=false
+			Fire4.visible=true
+			Fire4Col.disabled=false
+		else:
+			Fire1.visible=false
+			Fire1Col.disabled=true
+			Fire2.visible=false
+			Fire2Col.disabled=true
+			Fire3.visible=false
+			Fire3Col.disabled=true
+			Fire4.visible=false
+			Fire4Col.disabled=true
+	elif Global.level==1:
+		hudText.text="Present me a sacrifice... use my flame..."
+		Fire1.visible=true
+		Fire1Col.disabled=false
+		Fire2.visible=false
+		Fire2Col.disabled=true
+		Fire3.visible=false
+		Fire3Col.disabled=true
+		Fire4.visible=false
+		Fire4Col.disabled=true
+	elif Global.level==2:
+		hudText.text="Now bring me as many sacrifices as you can..."
 		Fire1.visible=true
 		Fire1Col.disabled=false
 		Fire2.visible=true
@@ -38,16 +78,8 @@ func _physics_process(delta: float) -> void:
 		Fire3Col.disabled=false
 		Fire4.visible=true
 		Fire4Col.disabled=false
-	else:
-		Fire1.visible=false
-		Fire1Col.disabled=true
-		Fire2.visible=false
-		Fire2Col.disabled=true
-		Fire3.visible=false
-		Fire3Col.disabled=true
-		Fire4.visible=false
-		Fire4Col.disabled=true
-		
+			
+			
 	var directiony := Input.get_axis("up", "down")
 	var direction := Input.get_axis("left", "right")
 	if direction<0:

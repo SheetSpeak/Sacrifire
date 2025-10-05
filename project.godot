@@ -15,10 +15,16 @@ run/main_scene="uid://c8oqjfdesaslw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Hud="*res://HUD.tscn"
+Global="*res://globals.gd"
+
 [global_group]
 
 Player=""
 vis=""
+hudText=""
 
 [input]
 
