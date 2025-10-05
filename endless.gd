@@ -4,11 +4,14 @@ extends Node2D
 
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
+	var newghost=ghost.instantiate();
+	newghost.position=Vector2(100,100)
+	add_child(newghost)
 	
 	
 
 
 func _on_timer_timeout() -> void:
 	var newghost=ghost.instantiate();
-	newghost.position=Vector2(randi_range(-100,100),randi_range(-100,100))
+	newghost.position=Vector2(0,0)
 	add_child(newghost)
